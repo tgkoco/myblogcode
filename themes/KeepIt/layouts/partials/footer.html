@@ -1,0 +1,45 @@
+<!-- 更改鼠标的样式 -->
+<style>
+    body {
+        cursor: url(https://tgzl.github.io/cursor.ico), default;
+    }
+</style>
+<!-- 更改页面的标签样式 -->
+<script>
+    var OriginTitile = document.title,
+        titleTime;
+    document.addEventListener("visibilitychange",
+        function () {
+            if (document.hidden) {
+                $('[rel="shortcut icon"]').attr("href", "//tgzl.github.io/fail.ico");
+                $('[rel="icon"]').attr("href", "//tgzl.github.io/fail.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgzl.github.io/fail.ico");
+                document.title = "(@_@)页面已崩溃！点击恢复！";
+                clearTimeout(titleTime)
+            } else {
+                $('[rel="shortcut icon"]').attr("href", "//tgzl.github.io/favicon.ico");
+                $('[rel="icon"]').attr("href", "//tgzl.github.io/favicon.ico");
+                $('[rel=" apple-touch-icon"]').attr("href", "//tgzl.github.io/favicon.ico");
+                document.title = "(/≧▽≦/)咦！又好了！ " + OriginTitile;
+                titleTime = setTimeout(function () {
+                    document.title = OriginTitile
+                },2000)
+            }
+        });
+</script>
+
+<footer class="footer">
+    <div class="copyright">
+        &copy;
+        {{ with .Site.Params.since }}
+        <span itemprop="copyrightYear">{{.}} - {{ now.Year }}</span>
+        {{ end }}
+         {{ if .Site.Params.author }}
+            <span class="author" itemprop="copyrightHolder"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author  }}</a> | </span>
+         {{ end }}
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+{{ partial "js.html" . }}

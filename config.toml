@@ -1,206 +1,185 @@
-baseurl = "https://tgzl.github.io/"
-title = "糖果🍬的小屋"
-enableRobotsTXT = true
+baseURL = "http://localhost:1313"
+languageCode = "en"
+defaultContentLanguage = "en"
+title = "TG zl"
+theme = "KeepIt"
+
+paginate = 12
 enableEmoji = true
-theme = "jane"
+enableRobotsTXT = true
+googleAnalytics = ""
+disqusShortname = "tgzl"
+publishDir = "docs"
+canonifyURLs = true
 
-hasCJKLanguage = true     # 自动检测是否包含 中文\日文\韩文
-paginate = 10             # 首页每页显示的文章数
-rssLimit = 20             # 限制 Rss 文章输出数量
-disqusShortname = "https-tgzl.github-io/"      # disqus_shortname
-#googleAnalytics = "UA-42862533-1"      # UA-XXXXXXXX-X
-copyright = "糖果koco"            # 默认为下面配置的author.name ↓
-# uglyURLs = true         # more info: https://gohugo.io/content-management/urls/#ugly-urls
+#pymentsUseClassic = false
+pygmentsCodefences = true
+pygmentsUseClasses = true
+pygmentsCodefencesGuessSyntax = true
 
-# 突出显示选项. See https://gohugo.io/content-management/syntax-highlighting/
-PygmentsCodeFences = true # 使用github风格的代码围栏启用语法突出显示
-PygmentsUseClasses = true # 使用css类格式化突出显示的代码
-PygmentsCodefencesGuessSyntax = true #Pygments代码围栏猜测语法
-PygmentsOptions = "linenos=table" #pygments选项
-
-# 语言支持 # en / zh-cn / other... translations present in i18n/
-defaultContentLanguage = "zh-cn"           # 要使用的默认语言
-[languages.zh-cn]
-  languageCode = "zh-cn"
-
-[author]                                   # 必需
-  name = "糖果🍬Koco"
-
-[sitemap]                                  # 必需
-  changefreq = "weekly"
-  priority = 0.5
+[sitemap]
+  changefreq = "monthly"
   filename = "sitemap.xml"
+  priority = 0.5
 
-[[menu.main]]                    # 配置目录
-  name = "首页"
-  weight = 10
-  identifier = "home"
-  url = "/"
-[[menu.main]]
-  name = "归档"
-  weight = 20
-  identifier = "archives"
-  url = "/post/"
-[[menu.main]]
-  name = "标签"
-  weight = 30
-  identifier = "tags"
-  url = "/tags/"
-[[menu.main]]
-  name = "分类"
-  weight = 40
-  identifier = "categories"
-  url = "/categories/"
-[[menu.main]]
-  name = "关于"
-  weight = 50
-  identifier = "about"
-  url = "/about/"
-[[menu.main]]
-  name = "GitHub"
-  weight = 60
-  url = "https://github.com/tgzl"
+[blackfriday]
+  hrefTargetBlank = true
+  nofollowLinks = true
+  noreferrerLinks = true
+
+[Permalinks]
+ posts = "/:year/:filename/"
+
+[menu]
+  [[menu.main]]
+    name = "Blog"
+    url = "/posts/"
+    weight = 1
+
+  [[menu.main]]
+    name = "categories"
+    url = "/categories/"
+    weight = 2
+
+  [[menu.main]]
+    name = "tags"
+    url = "/tags/"
+    weight = 3
 
 [params]
-  debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
-  # uglyURLs = true          # 在网站中使用uglyurl后必须设置为true（见上文）。因为$.site.uglyurl无法导入。
-  since = "2019"            # Site creation time          # 站点建立时间
-  homeFullContent = false   # 如果错误，请在主页上显示文章摘要。其他的都显示了全部的内容。
-  rssFullContent = true     # 如果为false，则使用rss提要而不是摘要
+    since = 2019
+    author = "TG🍬ZL"               # Author's name
+    subtitle = "🔥Chang gong as surname Take Le as Name🍭"      # Subtitle
+    cdn_url = ""           # Base CDN URL
+    home_mode = "" # post or other
 
-  # site info (optional)         # 站点信息（可选，不需要的可以直接注释掉）
-  logoTitle = "糖果🍬的小屋"         # 默认值: 上面设置的title值
-  keywords = ["Koco", "go", "golang","博客","blog"] #关键词
-  description = "糖果Koco的生活分享🔧练习✏️刷题📝笔记📚学习💬交流~" #描述
-
-  # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
-  archive-paginate = 50
-
-  # 分页样式，默认使用带编号的分页链接
-  # 如果为真，请使用原始的“上一个”和“下一个”链接。
-  # paginateOriginalStyle = true
-
-  # 要使用的日期格式；用于有效格式的列表, see https://gohugo.io/functions/format/
-  dateFormatToUse = "2006-01-02"
-
-  # 是否显示字数统计与阅读时间
-  moreMeta = true
-
-# 在菜单中显示语言选择器
-  showMenuLanguageChooser = false
-
-# 在文章下面显示作者信息
-  showAuthorInfo = true 
-
-  # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
-  toc = true                # 是否开启目录
-  photoswipe = true         # 是否启用PhotoSwipe（图片可点击）
-  bootcdn = false           # 是否使用bootcdn(@Deprecated: 请使用[params.publicCDN])
-  mathjax = true           # 是否使用mathjax（数学公式）
-  katex = false             # 是否使用katex（javascript库）see https://github.com/KaTeX/KaTeX
-  #内容版权
-  contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
-
-  changyanAppid = ""        # 畅言 app id            
-  changyanAppkey = ""       # 畅言 app key
-  tencent_analytics = ""    # 腾讯分析
-  baidu_push = false        # 百度推
-  baidu_analytics = ""      # 百度分析
-  baidu_verification = ""   # 百度验证
-  google_verification = ""  # 谷歌验证
-
-  # 链接自定义css和js
-  #  (relative to /static/css and /static/js respectively)
-  customCSS = []            # if ['custom.css'], load '/static/css/custom.css' file
-  customJS = []             # if ['custom.js'], load '/static/js/custom.js' file
-
-  # 启用'fork me on github', see https://blog.github.com/2008-12-19-github-ribbons/
-  # forkMeOnGithub = "https://github.com/tgzl/tgzl.github.io"
-
-  # 添加备案信息
-  # customFooter = "京ICP备10000000号-1"
-
-  [params.publicCDN]        #启用公共CDN，需自行定义
-    enable = false
-    jquery = '<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>'
-    slideout = '<script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>'
-    gitmentJS = '<script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>'
-    gitmentCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">'
-
-  [params.utteranc]         # Utteranc是一个基于GitHub问题的评论系统. see https://utteranc.es
-    enable = false
-    repo = "xianmin/comments-for-hugo-theme-jane"    # 存储评论的回购协议
-    issueTerm = "pathname"
-
-  [params.gitment]          # gitment是一个基于github问题的评论系统. see https://github.com/imsun/gitment
-    owner = ""              # Your GitHub ID
-    repo = ""               # 存储评论的回购协议
-    clientId = ""           # Your client ID
-    clientSecret = ""       # Your client secret
-
-
-  #[params.reward]                                         # 文章打赏
-   # enable = false
-    #wechat = "/path/to/your/wechat-qr-code.png"           # 微信二维码
-    #alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
-
-
- [params.social]                                         # 社交链接
-    a-email = "mailto:jbyl1205@163.com"
-    g-github = "https://github.com/tgzl"
-    q-bilibili = "https://space.bilibili.com/278413353"
-    #p-coding = "https://github.com/tgzl/tgzl.github.io"
-    #b-stack-overflow = "http://localhost:1313"
-    #c-twitter = "http://localhost:1313"
-    #d-facebook = "http://localhost:1313"
-    #e-linkedin = "http://localhost:1313"
-    #f-google = "http://localhost:1313"
-    #h-weibo = "http://localhost:1313"
-    #i-zhihu = "http://localhost:1313"
-    #j-douban = "http://localhost:1313"
-    #k-pocket = "http://localhost:1313"
-    #l-tumblr = "http://localhost:1313"
-    #m-instagram = "http://localhost:1313"
-    #n-gitlab = "http://localhost:1313"
-    #o-goodreads = "http://localhost:1313"
-    #r-codeforces = "http://localhost:1313"
-
-  [params.counter.busuanzi] # 不蒜子计数器
-    enable = true
-
-  [params.counter.leancloud]  # leancloud 计数器
-    enable = false
-    appId = ""
-    appKey = ""
-
-  [params.commentCount.disqus] # 显示取消评语的计数
-    enable = false
-  
-  # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
-  [params.gitInfo]
-    gitRepo = "https://github.com/tgzl/tgzl.github.io"
-    showCommitMessage = false
-
+    google_verification = ""
+    bing_verification = ""
+    yandex_verification = ""
+    pinterest_verification = ""
+    baidu_verification = ""
     
-# jsonfeed支持
-# more information: https://github.com/xianmin/hugo-theme-jane/issues/23
-# 要输出json，有必要取消注释这段代码，并使用hugo模板规范创建index.jsonfeed.json模板。
-[outputs]
-  home = ["html", "jsonfeed","rss"]
-   page = ["html"]
+    avatar = "images/me/avatar.png" #comment it to use gravatar
+    socialShare = true
+    
+    description = "糖果🍬ZL的生活分享🔧练习✏️刷题📝笔记📚学习💬交流~" # site description
+    keywords = "Koco go golang 博客 blog" # site keywords
 
- [outputFormats]
- [outputFormats.jsonfeed]
-   mediaType = "application/json"
-   baseName = "feed"
-   isPlainText = true
+    license= 'Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+
+[params.gravatar]
+    #email = "example@gmail.com"   #uncomment and insert your email address to use gravatar
 
 
-#多语言支持示例
-# [langusges]
-# [languages.en]
-#   title = "糖果🍬"
-#   weight = 1
-# [languages.zh-cn]
-#   title = "糖果🍬"
-#   weight = 2
+[params.social]
+    GitHub = "tgzl"
+    #Linkedin = "xxxx"
+    #Twitter = "xxxx"
+    #Instagram = "xxxx"
+    Email   = "jbyl1205@163.com"
+    Telegram = "space.bilibili.com/278413353"
+    #Facebook = "xxxx"
+    #Medium = "xxxx"
+    #Gitlab = "xxxx"
+    Youtubelegacy = "space.bilibili.com/278413353"
+    #Youtubecustom = "xxxx"
+    #Youtubechannel = "xxxx"
+    #Tumblr ="xxxx"
+    #Quora = "xxxx"
+    #Keybase = "space.bilibili.com/278413353"
+    #Pinterest = "xxxx"
+    #Reddit = "xxxx"
+    #Codepen = "xxxx"
+    #Bitbucket = "xxxx"
+    #Stackoverflow = "xxxxx"
+    #Weibo = "xxxx"
+    #Odnoklassniki = "xxxx"
+    #VKontakte = "xxxx"
+    #Flickr = "xxxx"
+    #Xing = "xxxx"
+    #Snapchat = "xxxx"
+    #Soundcloud = "xxxx"
+    #Spotify = "xxxx"
+    #Bandcamp = "xxxx"
+    #Paypal = "xxxx"
+    #Fivehundredpx = "xxxx"
+    #Mix = "xxxx"
+    #Goodreads = "xxxx"
+    #Lastfm = "xxxx"
+    #Foursquare = "xxxx"
+    #Hackernews = "xxxx"
+    #Kickstarter = "xxxx"
+    #Patreon = "xxxx"
+    #Steam = "xxxx"
+    #Twitch = "xxxx"
+    #Strava = "xxxx"
+    #Skype = "xxxx"
+    #Whatsapp = "xxxx"
+    #Zhihu = "xxxx"
+    #Douban = "xxxx"
+    #Angellist = "xxxx"
+    #Slidershare = "xxxx"
+    #Jsfiddle = "xxxx"
+    #Deviantart = "xxxx"
+    #Behance = "xxxx"
+    #Dribble = "xxxx"
+    #Wordpress = "xxxx"
+    #Vine = "xxxx"
+    #Googlescholar = "xxxx"
+    #Researchgate = "xxxx"
+    #Mastodon = "xxxx"
+    #Thingiverse = "xxxx"
+    
+
+[params.share]
+#Twitter = true
+Facebook = true
+#Reddit = true
+Linkedin = true
+#Pinterest = true
+#HackerNews = true
+#Mix = true
+#Tumblr = true
+#VKontakte = true
+#Douban = true
+Weibo = true
+
+# Used only for Seo schema 
+copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+
+[author]
+  name = "糖果🍬"
+
+  [params.publisher]
+    name = "糖果🍬"
+
+    [params.publisher.logo]
+      url = "logo.png"
+      width = 127
+      height = 40
+
+  [params.logo]
+    url = "logo.png"
+    width = 127
+    height = 40
+
+  [params.image]
+    url = "cover.png"
+    width = 800
+    height = 600
+
+[params.gitalk]           
+  owner = ""              
+  repo = ""               
+  clientId = ""           
+  clientSecret = ""   
+
+[params.valine]
+  enable = false
+  appId = 'your appId'
+  appKey = 'your appKey'
+  notify = false  # mail notifier , https://github.com/xCss/Valine/wiki
+  verify = false # Verification code
+  avatar = 'mm'
+  placeholder = 'your comments ...'
+  visitor = true
